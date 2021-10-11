@@ -37,10 +37,9 @@ root                    (project root folder)
 * TODO: Add your names and emails here
 
 
-   NAME        |       EMAIL
----------------------------------------------
-Marco Varela   |  var17010@byui.edu
-               |
-               |
-               |
-               |
+
+Marco Varela    var17010@byui.edu
+               
+               
+               
+               
