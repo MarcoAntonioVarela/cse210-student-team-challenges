@@ -33,15 +33,7 @@ root                    (project root folder)
 * Python 3.8.0
 
 ## Authors
----
-* TODO: Add your names and emails here
-
-
-
 * Marco Varela:    var17010@byui.edu
 * Brendan Jessen: jes20003@byui.edu
 * Matthew Young: dizzytmy@byui.edu
 * Anna Merrill: mer20014@byui.edu              
-               
-               
-               
