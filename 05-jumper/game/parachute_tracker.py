@@ -28,15 +28,15 @@ class Parachute_Tracker:
         Returns:
             string: the amount of parachute that is left.
         """
-        parachute = "\n  _____  \n /_\_/_\  \n |     | \n  \   /   \n   \O/     \n    |   \n   / \  \n \n^^^^^^^"
+        parachute = "\n  _____  \n /_\_/_\  \n |     | \n \     / \n  o   o   \n   \O/     \n    |   \n   / \  \n  \n^^^^^^^^^"
         
         if strikes == 1:
-            parachute = "\n /_\_/_\  \n |     | \n  \   /   \n   \O/     \n    |   \n   / \  \n \n^^^^^^^"
+            parachute = "\n /_\_/_\  \n |     | \n \     / \n  o   o   \n   \O/     \n    |   \n   / \  \n \n^^^^^^^^^"
         elif strikes == 2:
-            parachute = "\n |     | \n  \   /   \n   \O/     \n    |   \n   / \  \n \n^^^^^^^"
+            parachute = "\n |     | \n \     / \n  o   o   \n   \O/     \n    |   \n   / \  \n \n^^^^^^^^^"
         elif strikes == 3:
-            parachute = "\n  \   /   \n   \O/     \n    |   \n   / \  \n \n^^^^^^^"
+            parachute = "\n \     / \n  o   o   \n   \O/     \n    |   \n   / \  \n \n^^^^^^^^^"
         elif strikes == 4:
-            parachute = "\n   \X/     \n    |   \n   / \  \n \n^^^^^^^"
+            parachute = "\n   \X/     \n    |   \n   / \  \n \n^^^^^^^^^"
         return parachute
         
