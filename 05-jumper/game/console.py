@@ -1,5 +1,6 @@
 import os
 from game.parachute_tracker import Parachute_Tracker
+from game.letter_tracker import Tracker
 
 class Console:
     """A code template for a computer console. The responsibility of this
@@ -26,6 +27,7 @@ class Console:
         """
         self.guess = ""
         self.Parachute_Tracker = Parachute_Tracker()
+        self.letter_tracker = Tracker()
 
     def clear_screen(self):
         """Detects OS type and sends appropriate console command to clear screen.
@@ -41,13 +43,16 @@ class Console:
         Args:
             self (Console): An instance of Console.
         """
-        prompt = "\nGuess a letter [a-z]: "
+
+        prompt = "Guess a letter [a-z]: "
         while True:
             self.clear_screen()
 
             print("\n" + word_progress)
 
             print(self.Parachute_Tracker.get_parachute(num_strikes))
+            
+            print(f"You have guessed the letters: {self.letter_tracker.tracker}")
 
             letter = input(prompt).lower().strip()
             if letter.isalpha() and len(letter) == 1 and (letter not in word_progress):
@@ -56,6 +61,7 @@ class Console:
             prompt = "\nPlease enter a letter [a-z]\nyou have not guessed yet: "
 
         self.guess = letter
+        self.letter_tracker.letter_tracker(self.guess)
 
     def read(self):
         """Returns user's letter guess as one-character string.
