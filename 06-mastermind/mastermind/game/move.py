@@ -5,30 +5,20 @@ class Move:
         Information Holder
 
     Attributes:
-        _pile (integer): The pile to remove from.
-        _stones (integer): The number of stones to remove.
+        _guess (integer): The number guessed by the user.
     """
-    def __init__(self, stones, pile):
+    def __init__(self, guess):
         """The class constructor.
         
         Args:
             self (Board): an instance of Board.
         """
-        self._pile = pile
-        self._stones = stones
+        self._guess = guess
 
     def get_pile(self):
-        """Returns the pile to remove from.
+        """Returns the guess.
 
         Args:
             self (Move): an instance of Move.
         """
-        return self._pile
-
-    def get_stones(self):
-        """Returns the number of stones to remove.
-
-        Args:
-            self (Move): an instance of Move.
-        """
-        return self._stones
+        return self._guess
