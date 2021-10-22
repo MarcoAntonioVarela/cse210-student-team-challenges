@@ -1,9 +1,10 @@
+#This has been updated 10/22/2022
+
 class Roster:
     """A collection of players. The responsibility of Roster is to keep track of the players.
     
     Stereotype: 
         Information Holder
-
     Attributes:
         _current (integer): The index of the current player.
         _players (list): A list of Player objects.
@@ -45,3 +46,9 @@ class Roster:
             self (Roster): An instance of Roster.
         """
         self.current = (self.current + 1) % len(self.players)
+
+    def get_players(self):
+        """Returns the list of player objects
+        Args:
+            self - an instance of roster"""
+        return self.players
