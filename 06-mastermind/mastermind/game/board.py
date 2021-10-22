@@ -10,6 +10,8 @@ class Board:
         return code_list
 
     def _create_guess_list(self, guess):
-        guess_list = guess.split()
+        guess_list = list(str(guess))
         return guess_list
         
+    def _apply(self, guess):
+        pass
