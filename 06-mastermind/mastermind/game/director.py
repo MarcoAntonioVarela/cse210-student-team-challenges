@@ -2,6 +2,7 @@ from game.board import Board
 from game.console import Console
 from game.player import Player
 from game.roster import Roster
+from game.turn import Turn
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -27,7 +28,7 @@ class Director:
         self._board = Board()
         self._console = Console()
         self._keep_playing = True
-        self._move = None
+        self._turn= None
         self._roster = Roster()
         
     def start_game(self):
@@ -67,8 +68,8 @@ class Director:
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
         guess = self._console.read_number("What's your guess? ")
-        move = Move(guess)
-        player.set_move(move)
+        turn = Turn(guess)
+        player.set_move(turn)
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -78,8 +79,8 @@ class Director:
             self (Director): An instance of Director.
         """
         player = self._roster.get_current()
-        move = player.get_move()
-        self._board.apply(move)
+        turn = player.get_move()
+        self._board.apply(turn)
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
