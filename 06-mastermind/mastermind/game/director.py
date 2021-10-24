@@ -3,6 +3,7 @@ from game.console import Console
 from game.player import Player
 from game.roster import Roster
 from game.mastermind import Mastermind
+from game.turn import Turn
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -31,7 +32,7 @@ class Director:
         self._move = None
         self._roster = Roster()
         self._mastermind = Mastermind()
-        self.guess_list = self._mastermind
+        
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -64,13 +65,13 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        board = self._board.to_string()
+        board = self._board._create_border()
         self._console.write(board)
         # get next player's move
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
         guess = self._console.read_number("What's your guess? ")
-        move = Move(guess)
+        move = Turn(guess)
         player.set_move(move)
 
     def _do_updates(self):
@@ -96,7 +97,4 @@ class Director:
             name = winner.get_name()
             print(f"\n{name} won!")
             self._keep_playing = False
-        self._roster.next_player()
-
-     
-       
+        self._roster.next_player()   
