@@ -62,7 +62,7 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        board = self._board.to_string()
+        board = self._board.guess
         self._console.write(board)
         # get next player's move
         player = self._roster.get_current()
@@ -80,7 +80,7 @@ class Director:
         """
         player = self._roster.get_current()
         turn = player.get_move()
-        self._board.apply(turn)
+        self._board.guess_accuracy(turn)
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -89,7 +89,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self._board.is_empty():
+        if self._board():
             winner = self._roster.get_current()
             name = winner.get_name()
             print(f"\n{name} won!")
