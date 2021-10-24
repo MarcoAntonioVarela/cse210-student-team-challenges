@@ -2,7 +2,6 @@ from game.board import Board
 from game.console import Console
 from game.player import Player
 from game.roster import Roster
-from game.mastermind import Mastermind
 from game.turn import Turn
 
 class Director:
@@ -29,7 +28,7 @@ class Director:
         self._board = Board()
         self._console = Console()
         self._keep_playing = True
-        self._move = None
+        self._turn= None
         self._roster = Roster()
         self._mastermind = Mastermind()
         
@@ -65,14 +64,14 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        board = self._board._create_border()
+        board = self._board.guess
         self._console.write(board)
         # get next player's move
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
         guess = self._console.read_number("What's your guess? ")
-        move = Turn(guess)
-        player.set_move(move)
+        turn = Turn(guess)
+        player.set_move(turn)
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -82,8 +81,8 @@ class Director:
             self (Director): An instance of Director.
         """
         player = self._roster.get_current()
-        move = player.get_move()
-        self._mastermind.compare(move)
+        turn = player.get_move()
+        self._board.guess_accuracy(turn)
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -92,7 +91,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self._mastermind.is_won():
+        if self._board():
             winner = self._roster.get_current()
             name = winner.get_name()
             print(f"\n{name} won!")

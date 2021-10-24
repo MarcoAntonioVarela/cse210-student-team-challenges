@@ -16,7 +16,7 @@ class Board:
             self (Director): an instance of Director.
         """
         self.guess = 0
-        self.code = random.randint(1000,9999)
+        self.random_num = random.randint(1000,9999)
         self.player = None
 
     def _create_list(self):
@@ -26,7 +26,7 @@ class Board:
         Args:
             self (Director): an instance of Director.
         """
-        code_list = self.code.split()
+        code_list = self.random_num.split()
         return code_list
 
     def _create_guess_list(self):
