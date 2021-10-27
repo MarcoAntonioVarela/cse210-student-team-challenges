@@ -1,8 +1,6 @@
 from time import sleep
 from game import constants
 from game.point import Point
-from game.input_service import InputService
-from game.output_service import OutputService
 from game.word import Word
 from game.wordmanager import WordManager
 
@@ -28,6 +26,8 @@ class Director:
         self._output_service = output_service
         #self._score_board = Point()
         self._snake = Word()
+        self._input_service = input_service
+        self._letter = ""
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -49,8 +49,8 @@ class Director:
         print("Game over!")
 
     def _get_inputs(self):
-        pass
-
+        self._letter = self._input_service.get_letter()
+        
     def _do_updates(self):
         pass
 
