@@ -25,7 +25,7 @@ class OutputService:
         Opens a new window with the specified title
         """
         raylibpy.init_window(constants.MAX_X, constants.MAX_Y, title)
-        raylibpy.set_target_fps(constants.FRAME_RATE)
+        #raylibpy.set_target_fps(constants.FRAME_RATE)
         
     def clear_screen(self):
         """Clears the screen in preparation for the next rendering.
