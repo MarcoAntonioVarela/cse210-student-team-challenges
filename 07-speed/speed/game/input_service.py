@@ -11,13 +11,13 @@ class InputService:
         _screen (Screen): An Asciimatics screen.
     """
 
-    def __init__(self, screen):
+    def __init__(self):
         """The class constructor.
         
         Args:
             self (InputService): An instance of InputService.
         """
-        self._screen = screen
+        self._screen 
         
     def get_letter(self):
         """Gets the letter that was typed. If the enter key was pressed returns an asterisk.
