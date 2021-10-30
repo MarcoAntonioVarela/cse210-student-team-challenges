@@ -3,6 +3,7 @@ from game import constants
 from game.point import Point
 from game.word import Word
 from game.wordmanager import WordManager
+from game import input_service
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -38,12 +39,12 @@ class Director:
         print("Starting game...")
         self._output_service.open_window("Speed")
 
-        while self._keep_playing == True:
+        while self._keep_playing:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
 
-            if self._input_service.window_should_close() == True:
+            if self._input_service.window_should_close():
                 self._keep_playing = False
 
         print("Game over!")
@@ -52,7 +53,8 @@ class Director:
         self._letter = self._input_service.get_letter()
         
     def _do_updates(self):
-        pass
+        self._input_service.get_letter()
+        self._input_service.window_should_close()
 
     def _do_outputs(self):
         pass
