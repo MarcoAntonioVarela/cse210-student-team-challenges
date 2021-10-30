@@ -1,4 +1,4 @@
-
+import random
 from game import constants
 from game.point  import Point
 from game.actor import Actor
