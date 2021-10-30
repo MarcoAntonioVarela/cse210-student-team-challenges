@@ -1,9 +1,9 @@
 from time import sleep
-from game import constants
-from game.point import Point
 from game.word import Word
-from game.wordmanager import WordManager
 from game import input_service
+#from game.buffer import Buffer
+from game import Score
+from game import constants
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -57,4 +57,9 @@ class Director:
         self._input_service.window_should_close()
 
     def _do_outputs(self):
-        pass
+        self.output_service.clear_screen()
+        self.output_service.draw_actor(self._score)
+        for word in self._words:
+            self.output_service.draw_actor(word)
+        self.output_service.draw_actor(self._buffer)
+        self.output_service.flush_buffer()
