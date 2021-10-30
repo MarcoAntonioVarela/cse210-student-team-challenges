@@ -12,13 +12,13 @@ class OutputService:
         None
     """
 
-    def __init__(self, screen):
+    def __init__(self):
         """The class constructor.
         
         Args:
             self (OutputService): An instance of OutputService.
         """
-        self._screen = screen
+        pass
 
     def open_window(self, title):
         """
