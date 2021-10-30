@@ -38,13 +38,13 @@ class Director:
         print("Starting game...")
         self._output_service.open_window("Speed")
 
-        while self._keep_playing:
+        while self._keep_playing == True:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
 
-            # if self._input_service.window_should_close():
-            #     self._keep_playing = False
+            if self._input_service.window_should_close() == True:
+                self._keep_playing = False
 
         print("Game over!")
 

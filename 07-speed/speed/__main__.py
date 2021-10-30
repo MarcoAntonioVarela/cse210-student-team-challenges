@@ -1,5 +1,3 @@
-import os
-os.environ["RAYLIB_BIN_PATH"] = '.'
 from raylibpy import RAYLIB_BIN_PATH
 from game.director import Director
 from game.input_service import InputService

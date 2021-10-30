@@ -18,7 +18,7 @@ class OutputService:
         Args:
             self (OutputService): An instance of OutputService.
         """
-        self._screen 
+        pass
 
     def open_window(self, title):
         """
