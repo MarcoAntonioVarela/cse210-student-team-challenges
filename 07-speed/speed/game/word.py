@@ -2,6 +2,7 @@
 from game import constants
 from game.point  import Point
 from game.actor import Actor
+import random
 
 class Word(Actor):
     def __init__(self):
