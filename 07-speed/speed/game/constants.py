@@ -1,4 +1,5 @@
 import os
+os.environ['RAYLIB_BIN_PATH'] = '.'
 
 MAX_X = 600
 MAX_Y = 400
