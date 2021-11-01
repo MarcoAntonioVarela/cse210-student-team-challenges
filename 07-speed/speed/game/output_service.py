@@ -1,8 +1,9 @@
 import sys
 from game import constants
 import raylibpy
+from game.actor import Actor
 
-class OutputService:
+class OutputService(Actor):
     """Outputs the game state. The responsibility of the class of objects is to draw the game state on the terminal. 
     
     Stereotype: 
@@ -18,7 +19,8 @@ class OutputService:
         Args:
             self (OutputService): An instance of OutputService.
         """
-        pass
+        super().__init__()
+        self._actor = Actor()
 
     def open_window(self, title):
         """
@@ -64,12 +66,12 @@ class OutputService:
             self (OutputService): An instance of OutputService.
             actor (Actor): The actor to render.
         """ 
-        text = actor.get_text()
-        position = actor.get_position()
+        text = self._actor.get_text()
+        position = self._actor.get_position()
         x = position.get_x()
         y = position.get_y()
-        width = actor.get_width()
-        height = actor.get_height()
+        width = self._actor.get_width()
+        height = self._actor.get_height()
 
         is_dark_text = True
 

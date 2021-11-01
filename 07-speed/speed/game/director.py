@@ -28,6 +28,7 @@ class Director:
         self._snake = Word()
         self._input_service = input_service
         self._letter = ""
+        self._score = 0
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
