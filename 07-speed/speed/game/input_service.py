@@ -43,3 +43,5 @@ class InputService:
         event = raylibpy.is_key_down(raylibpy.KEY_ESCAPE)
         if event == True:
             return True
+        else:
+            return False
