@@ -53,10 +53,9 @@ class Director:
         print("Game over!")
 
     def _get_inputs(self):
-        self._letter = self._input_service.get_letter()
+         self._letter = self._input_service.get_letter()
         
     def _do_updates(self):
-        self._input_service.get_letter()
         self._input_service.window_should_close()
 
     def _do_outputs(self):
