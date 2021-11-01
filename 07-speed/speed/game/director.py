@@ -3,6 +3,7 @@ from game.word import Word
 #from game.buffer import Buffer
 from game.score import Score
 from game import constants
+from game.buffer import Buffer
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -29,6 +30,8 @@ class Director:
         self._input_service = input_service
         self._letter = ""
         self._score = 0
+        self._words = ""
+        self._buffer = Buffer()
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
