@@ -57,8 +57,10 @@ class Director:
 
     def _do_outputs(self):
         self._output_service.clear_screen()
-        self._output_service.draw_actor(self._score)
+        #self._output_service.draw_actor(self._score)
         for word in self._words:
             self._output_service.draw_actor(word)
         self._output_service.draw_actor(self._buffer)
         self._output_service.flush_buffer()
+
+    

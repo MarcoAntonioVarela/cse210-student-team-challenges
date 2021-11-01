@@ -29,15 +29,12 @@ class InputService:
             string: The letter that was typed.
         """
         
-        event = raylibpy.get_key_pressed()
-        if not event is None:
-            if event == 27:
-                sys.exit()
-            elif event == 10: 
-                self.letter = "*"
-            elif event >= 97 and event <= 122: 
-                self.letter = chr(event)
-        return self.letter
+        key_int = raylibpy.get_key_pressed()
+ 
+        key_string = None
+        if key_int != -1:
+            key_string = chr(key_int)
+        return key_string
 
     def window_should_close(self):
         event = raylibpy.is_key_down(raylibpy.KEY_ESCAPE)
