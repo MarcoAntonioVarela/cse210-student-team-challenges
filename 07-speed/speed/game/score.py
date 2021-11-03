@@ -7,7 +7,7 @@ class Score(Actor):
     
     """
     def __init__(self):
-        """The class constructor. Invokes the superclass constructor, initializes points to zero, sets the position and updates the text.
+        """The class constructor. Calls the superclass constructor, initializes points to zero, sets the position and updates the text.
         """
         super().__init__()
         self._points = 0
