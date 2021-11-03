@@ -26,7 +26,7 @@ class Director:
         self._keep_playing = True
         self._output_service = output_service
         #self._score_board = Point()
-        self._snake = Word()
+        self._word = Word()
         self._input_service = input_service
         self._letter = ""
         self._score = 0
@@ -54,10 +54,11 @@ class Director:
 
     def _get_inputs(self):
         self._letter = self._input_service.get_letter()
+        self._input_service.window_should_close()
         
     def _do_updates(self):
-        self._input_service.get_letter()
-        self._input_service.window_should_close()
+        pass
+        
 
     def _do_outputs(self):
         self._output_service.clear_screen()
