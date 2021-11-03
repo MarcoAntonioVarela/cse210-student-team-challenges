@@ -1,6 +1,7 @@
 from time import sleep
 from game.word import Word
-#from game.buffer import Buffer
+#We have Buffer as an extra feature :)
+from game.buffer import Buffer
 from game.score import Score
 from game import constants
 from game.buffer import Buffer
@@ -57,8 +58,31 @@ class Director:
         self._input_service.window_should_close()
         
     def _do_updates(self):
-        pass
+        pass         
         
+    def _do_updates(self):
+
+        for word in self._words:
+            word.move_next()
+            if(not word.check_position()):
+                # Checking if word has moved off of the screen and needs to be replaced
+                self._words.remove(word)
+                #Appending words 
+                self._words.append(Word())
+        if not len(self._buffer.get_chars()) == 0: 
+            recent_char = self._buffer.get_chars()[len(self._buffer.get_chars()) - 1]
+            if (recent_char == '*'):
+                #Reseting the buffer
+                self._buffer.reset_buffer()
+            else:
+                for word in self._words:
+                    if (self._buffer.compare(word.get_text())):
+                        self._score.add_points(1)
+                        self._words.remove(word)
+                        self._words.append(Word())
+                        continue
+    
+        self._input_service.window_should_close()
 
     def _do_outputs(self):
         self._output_service.clear_screen()
