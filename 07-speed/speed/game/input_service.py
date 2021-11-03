@@ -17,7 +17,7 @@ class InputService:
         Args:
             self (InputService): An instance of InputService.
         """
-        pass
+        self.letter = ""
         
     def get_letter(self):
         """Gets the letter that was typed. If the enter key was pressed returns an asterisk.
@@ -28,18 +28,20 @@ class InputService:
         Returns:
             string: The letter that was typed.
         """
-        result = ""
+        
         event = raylibpy.get_key_pressed()
         if not event is None:
             if event == 27:
                 sys.exit()
             elif event == 10: 
-                result = "*"
+                self.letter = "*"
             elif event >= 97 and event <= 122: 
-                result = chr(event)
-        return result
+                self.letter = chr(event)
+        return self.letter
 
     def window_should_close(self):
         event = raylibpy.is_key_down(raylibpy.KEY_ESCAPE)
         if event == True:
             return True
+        else:
+            return False
