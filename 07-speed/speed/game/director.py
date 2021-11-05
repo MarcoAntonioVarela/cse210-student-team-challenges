@@ -2,6 +2,7 @@ from game.word import Word
 from game.buffer import Buffer
 from game.score import Score
 from game import constants
+from game.point import Point
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -52,7 +53,6 @@ class Director:
 
     def _get_inputs(self):
         self._letter = self._input_service.get_letter()
-<<<<<<< HEAD
         self._input_service.window_should_close()  
         
     def _do_updates(self):
@@ -79,26 +79,11 @@ class Director:
         self._input_service.window_should_close()
 
     def _do_outputs(self):
-        self._output_service.clear_screen()
-        self._output_service.draw_actor(self._score)
-        for word in self._words:
-            self._output_service.draw_actor(word)
-        self._output_service.draw_actor(self._buffer)
-        self._output_service.flush_buffer()
-=======
-        self._input_service.window_should_close()
+        pass
                  
         
     def _do_updates(self):
-        """Updates the game acccording to the game flow completed by the player
-        
-        Args:
-            self (Director): An instance of Director
-        """
-        self._handle_enter()
+        pass
 
     def _do_outputs(self):
-       
->>>>>>> b142ed8cbd9ec9061c5ddd57fea60f9b2dafb624
-
-    
+       pass

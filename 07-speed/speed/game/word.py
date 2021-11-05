@@ -3,7 +3,7 @@ from game.point  import Point
 from game.actor import Actor
 import random
 
-class Words(Actor):
+class Word(Actor):
 
     """A list of many actors creating a list of words. Facilitates the points for each word (per word?), 
     and the generation of new words.
@@ -81,13 +81,6 @@ class Words(Actor):
         self._words.append(word)
         
 
-<<<<<<< HEAD
-    def check_position(self):
-        if (self.get_position().get_x() + (len(self.get_text()) - 1) > constants.MAX_X):
-            return False
-        return True
-
-=======
     def _prepare_list(self):
         """Prepares the word list by adding words from the library constant words.txt.
         
@@ -111,4 +104,3 @@ class Words(Actor):
             word (string): the word to check the length of.
         """
         self._points = len(word)
->>>>>>> b142ed8cbd9ec9061c5ddd57fea60f9b2dafb624
