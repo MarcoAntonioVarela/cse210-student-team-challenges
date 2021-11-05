@@ -86,10 +86,3 @@ class Director:
         self._output_service.draw_actor(self._buffer)
         self._output_service.flush_buffer()
         self._input_service.window_should_close()
-                 
-        
-    def _do_updates(self):
-        pass
-
-    def _do_outputs(self):
-       pass
