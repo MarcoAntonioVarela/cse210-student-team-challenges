@@ -1,4 +1,4 @@
-from game.word import Word
+from game.word import Words
 from game.buffer import Buffer
 from game.score import Score
 from game import constants
@@ -25,7 +25,7 @@ class Director:
         self._keep_playing = True
         self._output_service = output_service
         #self._score_board = Point()
-        self._word = Word()
+        self._word = Words()
         self._input_service = input_service
         self._letter = ""
         self._score = 0
@@ -65,6 +65,4 @@ class Director:
         self._handle_enter()
 
     def _do_outputs(self):
-       
-
-    
+       pass
