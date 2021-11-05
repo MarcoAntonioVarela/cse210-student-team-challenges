@@ -5,7 +5,7 @@
 #The OS module in Python provides functions for interacting with the operating system.
 #OS is normally use to make,move,rename and remove directories.
 import os
-
+os.environ['RAYLIB_BIN_PATH'] = '.'
 MAX_X = 800
 MAX_Y = 400
 FRAME_RATE = 30
