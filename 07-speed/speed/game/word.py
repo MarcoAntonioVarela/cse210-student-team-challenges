@@ -5,19 +5,15 @@ import random
 
 class Words(Actor):
 
-    """A list of many actors creating a list of words. Facilitates the points per word, 
+    """A list of many actors creating a list of words. Facilitates the points for each word (per word?), 
     and the generation of new words.
-    Stereotypes:
-        Information Holder
-    Attributes:
-        _words (list): a list to contain all of our instances of word actors.
-        _points (int): keeping track of points in a given word.
+
     """
     
     def __init__(self):
          """The class constructor.
         
-        Args:
+        Argumentos:
             self (Words): An instance of Words.
         """
          super().__init__()
@@ -30,7 +26,7 @@ class Words(Actor):
     def get_all(self):
         """Gets all the words from the list of words the player can try to type. 
         
-        Args:
+        Argumentos:
             self (words): instances of words
         returns:
             list of words to be typed
@@ -41,7 +37,7 @@ class Words(Actor):
     def move_word(self, word, x, y):
         """Moves the word along the predetermined x,y plane
         
-        Args:
+        Argumentos:
             self (words): an instance of words
             text (string) the words text.
             x (integer): A horizontal distance.
@@ -54,7 +50,7 @@ class Words(Actor):
         
     def word_check(self, word):
         '''Checks the users typed input with the word list. Gets 
-        Args:
+        Argumentos:
             self (words): an instance of Words.
             text (string) the words text.
         '''        
@@ -72,7 +68,7 @@ class Words(Actor):
     def _add_word(self, text, position, velocity):
         """
         Adds a new word to the words list using the passed in text, position and velocity.
-        Args:
+        Argumentos
             self (Words): an instance of words
             text (string) the words text.
             position (Point): The word's position.
@@ -88,7 +84,7 @@ class Words(Actor):
     def _prepare_list(self):
         """Prepares the word list by adding words from the library constant words.txt.
         
-        Args:
+        Argumentos
             self (Words): an instance of Words.
         """
         for i in range(constants.STARTING_WORDS):
@@ -103,7 +99,7 @@ class Words(Actor):
 
     def _set_points(self, word):
         """Sets _points equal to the length of word.
-        Args:
+        Argumentos:
             self (Words): an instance of Words.
             word (string): the word to check the length of.
         """
