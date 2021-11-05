@@ -18,6 +18,7 @@ class InputService:
             self (InputService): An instance of InputService.
         """
         self.letter = ""
+        self.player_list = []
         
     def get_letter(self):
         """Gets the letter that was typed. If the enter key was pressed returns an asterisk.
@@ -42,3 +43,6 @@ class InputService:
             return True
         else:
             return False
+
+    def record_input(self):
+        pass
