@@ -52,4 +52,3 @@ class InputService:
 
     # def record_input(self):
     #     return key_string
-        return key_string
