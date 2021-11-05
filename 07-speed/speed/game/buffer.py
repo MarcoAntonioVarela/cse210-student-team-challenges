@@ -1,25 +1,41 @@
-from game import constants
 from game.actor import Actor
+from game.point import Point
+from game import constants
 
 class Buffer(Actor):
+    """Points earned. The responsibility of Buffer is to keep track of the players letters.
+   
+    """
     def __init__(self):
+        """The class construction for buffer.  initializes word set to blank, the position and updates the text
+        Argumentos:
+            self is an instance of Buffer
+        """
+
         super().__init__()
-        self.chars = ''
-        self._position._y = constants.MAX_Y - 1
+        self._word = ""
+        #The next line is linked to MAX_Y from the constants.py file
+        position = Point(1, constants.MAX_Y)
+        self.set_position(position)
+        self.set_text(f"Buffer: {self._word}")
 
-    def add_char(self, char):
-        self.chars += char
-        self.set_text(f'Buffer:{self.chars}')
+    
+    def add_letter(self, letter):
+        """Adds the give letter to the buffer and sets the buffer text with the word and letter.
+        
+        """
+        self._word += letter
+        self.set_text(f"Buffer: {self._word}")
 
-    def get_chars(self):
-        return self.chars
+        
+    def get_word(self):
+        """Gets the word(s)
+        """
+        #Please test this again, I am not sure if this will return the word
+        return self._word
 
-    def compare(self, string):
-        if (string in self.chars):
-            return True
-        else:
-            return False
+    def reset(self):
+        """I think this will reset the word to an empty string when called.
 
-    def reset_buffer(self):
-        self.chars = ''
-        self.set_text(f'Buffer:{self.chars}')
+        """
+        self._word = ""
