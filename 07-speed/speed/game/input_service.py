@@ -79,4 +79,16 @@ class InputService:
         if key_int != -1:
             key_string = chr(key_int)
 
+<<<<<<< HEAD
+    def window_should_close(self):
+        event = raylibpy.is_key_down(raylibpy.KEY_ESCAPE)
+        if event == True:
+            return True
+        else:
+            return False
+
+    def record_input(self):
+        pass
+=======
         return key_string
+>>>>>>> b142ed8cbd9ec9061c5ddd57fea60f9b2dafb624

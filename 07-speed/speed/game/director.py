@@ -1,8 +1,7 @@
-from game.word import Words
+from game.word import Word
 from game.buffer import Buffer
 from game.score import Score
 from game import constants
-
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -24,8 +23,8 @@ class Director:
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
-        #self._score_board = Point()
-        self._word = Words()
+        self._score_board = Point(0,1)
+        self._word = Word()
         self._input_service = input_service
         self._letter = ""
         self._score = 0
@@ -53,6 +52,38 @@ class Director:
 
     def _get_inputs(self):
         self._letter = self._input_service.get_letter()
+        self._input_service.window_should_close()  
+        
+    def _do_updates(self):
+        for word in self._words:
+            word.move_next()
+            if(not word.check_position()):
+                # Checking if word has moved off of the screen and needs to be replaced
+                self._words.remove(word)
+                #Appending words 
+                self._words.append(Word())
+        if not len(self._buffer.get_chars()) == 0: 
+            recent_char = self._buffer.get_chars()[len(self._buffer.get_chars()) - 1]
+            if (recent_char == '*'):
+                #Reseting the buffer
+                self._buffer.reset_buffer()
+            else:
+                for word in self._words:
+                    if (self._buffer.compare(word.get_text())):
+                        self._score.add_points(1)
+                        self._words.remove(word)
+                        self._words.append(Word())
+                        continue
+
+        self._input_service.window_should_close()
+
+    def _do_outputs(self):
+        self._output_service.clear_screen()
+        self._output_service.draw_actor(self._score)
+        for word in self._words:
+            self._output_service.draw_actor(word)
+        self._output_service.draw_actor(self._buffer)
+        self._output_service.flush_buffer()
         self._input_service.window_should_close()
                  
         
