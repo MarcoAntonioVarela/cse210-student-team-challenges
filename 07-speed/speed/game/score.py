@@ -19,4 +19,5 @@ class Score(Actor):
         """This function add the given points to the running total and updates the text.
         """
         self._points += points
+        #We need to verify if it is succesfully displaying the following message
         self.set_text(f"Score: {self._points}")
