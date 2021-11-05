@@ -3,6 +3,7 @@
 #Importing the OS module
 #What is the OS module? it is a built-in module (We don't need to install any third-party libraries)
 #The OS module in Python provides functions for interacting with the operating system.
+#OS is normally use to make,move,rename and remove directories.
 import os
 
 MAX_X = 800
