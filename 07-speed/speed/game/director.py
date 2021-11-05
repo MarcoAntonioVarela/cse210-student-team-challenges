@@ -89,12 +89,7 @@ class Director:
                  
         
     def _do_updates(self):
-        """Updates the game acccording to the game flow completed by the player
-        
-        Args:
-            self (Director): An instance of Director
-        """
-        self._handle_enter()
+        pass
 
     def _do_outputs(self):
        pass
