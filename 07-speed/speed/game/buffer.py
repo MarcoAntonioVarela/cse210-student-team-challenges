@@ -18,6 +18,7 @@ class Buffer(Actor):
         position = Point(1, constants.MAX_Y)
         self.set_position(position)
         self.set_text(f"Buffer: {self._word}")
+        self.chars = ""
 
     
     def add_letter(self, letter):
@@ -39,3 +40,6 @@ class Buffer(Actor):
 
         """
         self._word = ""
+
+    def get_chars(self):
+        return self.chars
