@@ -2,6 +2,7 @@ from game.word import Word
 from game.buffer import Buffer
 from game.score import Score
 from game import constants
+from game.point import Point
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
