@@ -14,9 +14,6 @@ class Buffer(Actor):
 
         super().__init__()
         self._word = ""
-        #The next line is linked to MAX_Y from the constants.py file
-        position = Point(1, constants.MAX_Y)
-        self.set_position(position)
         self.chars = ""
     
     def add_letter(self, letter):
