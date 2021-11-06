@@ -31,7 +31,8 @@ class Director:
         self._score = 0
         self._words = ""
         self.buffer_position = Point(1, constants.MAX_Y - 30)
-        self._buffer = Buffer()
+        self._buffers = Buffer()
+        self._buffer = ""
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -64,15 +65,15 @@ class Director:
                 self._words.remove(word)
                 #Appending words 
                 self._words.append(Word())
-        if not len(self._buffer.get_chars()) == 0: 
-            recent_char = self._buffer.get_chars()[len(self._buffer.get_chars()) - 1]
+        if not len(self._buffers.get_chars()) == 0: 
+            recent_char = self._buffers.get_chars()[len(self._buffers.get_chars()) - 1]
             if (recent_char == '*'):
                 #Reseting the buffer
-                self._buffer.reset_buffer()
+                self._buffers.reset()
             else:
                 for word in self._words:
                     if (self._buffer.compare(word.get_text())):
-                        self._buffer = self._buffer.add_letter(self._letter)
+                        self._buffer = self._buffers.add_letter(recent_char)
                         self._score = self._score.add_points(1)
                         self._words.remove(word)
                         self._words.append(Word())
@@ -85,6 +86,6 @@ class Director:
         self._output_service.draw_actor(f"Score: {self._score}", self._score_board)
         for word in self._words:
              self._output_service.draw_actor(word)
-        self._output_service.draw_actor(f"Buffer: {self._words}", self.buffer_position)
+        self._output_service.draw_actor(f"Buffer: {self._buffer}", self.buffer_position)
         self._output_service.flush_buffer()
         self._input_service.window_should_close()
