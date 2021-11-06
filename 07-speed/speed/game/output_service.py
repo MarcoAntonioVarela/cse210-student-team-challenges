@@ -59,7 +59,7 @@ class OutputService(Actor):
             constants.DEFAULT_FONT_SIZE,
             color)
 
-    def draw_actor(self, actor):
+    def draw_actor(self, actor, position):
         """Renders the given actor's text on the screen.
 
         Args:
@@ -67,7 +67,7 @@ class OutputService(Actor):
             actor (Actor): The actor to render.
         """ 
         text = str(actor)
-        position = self._actor.get_position()
+        # position = self._actor.get_position()
         x = position.get_x()
         y = position.get_y()
         # width = self._actor.get_width()

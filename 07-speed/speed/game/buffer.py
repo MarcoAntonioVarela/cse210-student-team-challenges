@@ -17,16 +17,14 @@ class Buffer(Actor):
         #The next line is linked to MAX_Y from the constants.py file
         position = Point(1, constants.MAX_Y)
         self.set_position(position)
-        self.set_text(f"Buffer: {self._word}")
         self.chars = ""
-
     
     def add_letter(self, letter):
         """Adds the give letter to the buffer and sets the buffer text with the word and letter.
         
         """
         self._word += letter
-        self.set_text(f"Buffer: {self._word}")
+        return self._word
 
         
     def get_word(self):
