@@ -28,7 +28,7 @@ class Director:
         self._word = Word()
         self._input_service = input_service
         self._letter = ""
-        self._score = 0
+        self._score = Score()
         self._words = ""
         self._buffer = Buffer()
 

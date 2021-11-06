@@ -66,7 +66,7 @@ class OutputService(Actor):
             self (OutputService): An instance of OutputService.
             actor (Actor): The actor to render.
         """ 
-        text = self._actor.get_text()
+        text = str(actor)
         position = self._actor.get_position()
         x = position.get_x()
         y = position.get_y()
@@ -79,10 +79,10 @@ class OutputService(Actor):
         #     self.draw_box(x, y, width, height)
         #     is_dark_text = False
         
-        if text != "":
-            self.draw_text(x, y, text) #is_dark_text)
+        # if text != "":
+        #     self.draw_text(x, y, text) #is_dark_text)
         #self._screen.print_at(text, x, y, 7) # WHITE
-        #raylibpy.draw_text(text, x, y, 16, raylibpy.BLUE)
+        raylibpy.draw_text(text, x, y, 16, raylibpy.BLUE)
 
     def draw_actors(self, actors):
         """Renders the given list of actors on the screen.
