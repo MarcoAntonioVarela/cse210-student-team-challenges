@@ -13,11 +13,14 @@ class Score(Actor):
         self._points = 0
         position = Point(1, 0)
         self.set_position(position)
-        self.set_text(f"Score: {self._points}")
+        #self.text = f"Score: {self._points}"
+        self._points = 0
     
     def add_points(self, points):
         """This function add the given points to the running total and updates the text.
         """
         self._points += points
+        return self._points
         #We need to verify if it is succesfully displaying the following message
-        self.set_text(f"Score: {self._points}")
+        # self.set_text = f"Score: {self._points}"
+        # return self.set_text

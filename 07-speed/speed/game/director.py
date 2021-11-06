@@ -28,7 +28,7 @@ class Director:
         self._word = Word()
         self._input_service = input_service
         self._letter = ""
-        self._score = Score()
+        self._score = 0
         self._words = ""
         self._buffer = Buffer()
 
@@ -71,7 +71,7 @@ class Director:
             else:
                 for word in self._words:
                     if (self._buffer.compare(word.get_text())):
-                        self._score.add_points(1)
+                        self._score = self._score.add_points(1)
                         self._words.remove(word)
                         self._words.append(Word())
                         continue
@@ -80,9 +80,9 @@ class Director:
 
     def _do_outputs(self):
         self._output_service.clear_screen()
-        self._output_service.draw_actor(self._score)
-        for word in self._words:
-            self._output_service.draw_actor(word)
-        self._output_service.draw_actor(self._buffer)
+        self._output_service.draw_actor(f"Score: {self._score}")
+        # for word in self._words:
+        #     self._output_service.draw_actor(word)
+        #self._output_service.draw_actor(self._buffer)
         self._output_service.flush_buffer()
         self._input_service.window_should_close()
