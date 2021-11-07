@@ -59,7 +59,7 @@ class Director:
         self._input_service.window_should_close()  
         
     def _do_updates(self):
-        self._words = self._word.get_all()
+        self._words = self._word.word_typed()
 
         # for self._word in self._words:
         #     self._word.move_next()

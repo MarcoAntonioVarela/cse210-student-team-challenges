@@ -17,7 +17,7 @@ class Word(Actor):
         self._points = 0
         self._typed = False
 
-    def set_word(self, word, point, velocity, score):
+    def set_word(self, word, point, velocity,score):
         """Sets all of the actor variables to the values needed
 
         """
