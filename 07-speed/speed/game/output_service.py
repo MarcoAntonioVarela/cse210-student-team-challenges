@@ -73,8 +73,8 @@ class OutputService(Actor):
         """ 
         text = str(actor)
         # position = self._actor.get_position()
-        x = self._position.get_x()
-        y = self._position.get_y()
+        x = position.get_x()
+        y = position.get_y()
         # width = self._actor.get_width()
         # height = self._actor.get_height()
 
