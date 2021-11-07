@@ -19,7 +19,9 @@ class Word(Actor):
          super().__init__()
          self._words = []
          self._points = 0
-         self._prepare_list()
+         #self._prepare_list()
+         self.set_position(Point(200, 200))
+         self.set_velocity = constants.MAX_SPEED
          
     def _choose_word(self):
         word = random.choice(constants.LIBRARY)
@@ -85,21 +87,21 @@ class Word(Actor):
         word.set_velocity(velocity)
         self._words.append(word)
         
-    def _prepare_list(self):
-        """Prepares the word list by adding words from the library constant words.txt.
+    # def _prepare_list(self):
+    #     """Prepares the word list by adding words from the library constant words.txt.
         
-        Argumentos
-            self (Words): an instance of Words.
-        """
-        for i in range(constants.STARTING_WORDS):
-            x = int(constants.MAX_X / 2)
-            y = int(constants.MAX_Y / 2 - 2)
-            #The following line will open the Library from our constants file "LIBRARY = open(PATH + "/words.txt").read().splitlines()"
-            text = constants.LIBRARY[random.randint(0, len(constants.LIBRARY))]
-            position = Point(x, y - i)
-            velocity = Point(1, 0)
+    #     Argumentos
+    #         self (Words): an instance of Words.
+    #     """
+    #     for i in range(constants.STARTING_WORDS):
+    #         x = int(constants.MAX_X / 2)
+    #         y = int(constants.MAX_Y / 2 - 2)
+    #         #The following line will open the Library from our constants file "LIBRARY = open(PATH + "/words.txt").read().splitlines()"
+    #         text = constants.LIBRARY[random.randint(0, len(constants.LIBRARY))]
+    #         position = Point(x, y - i)
+    #         velocity = Point(1, 0)
 
-            self._add_word(text, position, velocity)
+    #         self._add_word(text, position, velocity)
 
     def _set_points(self, word):
         """Sets _points equal to the length of word.
