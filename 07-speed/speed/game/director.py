@@ -43,7 +43,6 @@ class Director:
         """
         print("Starting game...")
         self._output_service.open_window("Speed")
-
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -59,7 +58,7 @@ class Director:
         self._input_service.window_should_close()  
         
     def _do_updates(self):
-        self._words = self._word.word_typed(self._score)
+        self._words = self._word.get_all()
 
         # for self._word in self._words:
         #     self._word.move_next()
