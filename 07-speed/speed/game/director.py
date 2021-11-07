@@ -3,8 +3,7 @@ from game.buffer import Buffer
 from game.score import Score
 from game import constants
 from game.point import Point
-from game.input_service import InputService
-from game.output_service import OutputService
+
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -24,10 +23,10 @@ class Director:
             self (Director): an instance of Director.
         """
         self._keep_playing = True
-        self._output_service = OutputService()
-        self._input_service = InputService()
+        self._input_service = input_service
+        self._output_service = output_service
         self._score_board = Point(0,1)
-        self.word = Word()
+        self._word = Word()
         self._letter = ""
         self._score = 0
         self._words = ""
@@ -59,11 +58,11 @@ class Director:
         self._input_service.window_should_close()  
         
     def _do_updates(self):
-        for word in self._words:
-            word.move_next()
-            if(not word.check_position()):
+        for self._word in self._words:
+            self._word.move_next()
+            if(not self._word.check_position()):
                 # Checking if word has moved off of the screen and needs to be replaced
-                self._words.remove(word)
+                self._words.remove(self._word)
                 #Appending words 
                 self._words.append(Word())
         if not len(self._letter) == 0: 
@@ -71,12 +70,12 @@ class Director:
                 #Reseting the buffer
                 self._buffers.reset()
             else:
-                for word in self._words:
-                    if (self._buffers.compare(word.get_text())):
+                for self._word in self._words:
+                    if (self._buffers.compare(self._word.get_text())):
                         self._buffer = self._buffers.add_letter(self._letter)
                         self._score = self._score.add_points(1)
-                        self._words.remove(word)
-                        self._words.append(Word())
+                        self._word.remove(self._word)
+                        self._word.append(self._word)
                         continue
 
         self._input_service.window_should_close()
