@@ -5,8 +5,6 @@ from game import constants
 from game.point import Point
 import random
 
-from game.constants import MAX_Y
-
 class Director:
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to control the sequence of play.
@@ -37,7 +35,7 @@ class Director:
         self._buffers = Buffer()
         self._buffer = ""
         #created word_position, ideally should let the words spawn in random positions along the Y axis
-        self.word_position = Point(random.randint(600, 750), random.randint(0, MAX_Y))
+        self.word_position = Point(random.randint(600, 750), random.randint(0, constants.MAX_Y))
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
