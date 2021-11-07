@@ -20,9 +20,11 @@ class Word(Actor):
          self._words = []
          self._points = 0
          self._prepare_list()
-        
+         
+    def _choose_word(self):
+        word = random.choice(constants.LIBRARY)
+        return word
 
-    
     def get_all(self):
         """Gets all the words from the list of words the player can try to type. 
         
@@ -31,6 +33,9 @@ class Word(Actor):
         returns:
             list of words to be typed
         """
+        for i in range(5):
+            word = self._choose_word()
+            self._words.append(word)
         return self._words
         
 
@@ -80,7 +85,6 @@ class Word(Actor):
         word.set_velocity(velocity)
         self._words.append(word)
         
-
     def _prepare_list(self):
         """Prepares the word list by adding words from the library constant words.txt.
         
