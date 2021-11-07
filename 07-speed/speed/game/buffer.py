@@ -1,6 +1,7 @@
 from game.actor import Actor
 from game.point import Point
 from game import constants
+# from game.input_service import InputService
 
 class Buffer(Actor):
     """Points earned. The responsibility of Buffer is to keep track of the players letters.
@@ -15,6 +16,7 @@ class Buffer(Actor):
         super().__init__()
         self._word = ""
         self.chars = ""
+        # self._input_service = InputService()
     
     def add_letter(self, letter):
         """Adds the give letter to the buffer and sets the buffer text with the word and letter.
@@ -36,5 +38,6 @@ class Buffer(Actor):
         """
         self._word = ""
 
-    def get_chars(self):
-        return self.chars
+    # def get_chars(self):
+    #     return self._input_service.get_letter()
+        

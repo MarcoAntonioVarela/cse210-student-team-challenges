@@ -31,12 +31,12 @@ class InputService:
             elif event == 10: 
                 self.letter = "*"
             elif event >= 97 and event <= 122: 
-                self.letter = chr(event)
+                self.letter = str(chr(event))
         return self.letter
 
     def window_should_close(self):
-        event = raylibpy.is_key_down(raylibpy.KEY_ESCAPE)
-        if event == True:
+        escape = raylibpy.is_key_down(raylibpy.KEY_ESCAPE)
+        if escape == True:
             return True
         else:
             return False

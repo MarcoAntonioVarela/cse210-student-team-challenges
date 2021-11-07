@@ -3,6 +3,7 @@ from game.buffer import Buffer
 from game.score import Score
 from game import constants
 from game.point import Point
+from game.input_service import InputService
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -25,8 +26,8 @@ class Director:
         self._keep_playing = True
         self._output_service = output_service
         self._score_board = Point(0,1)
-        self._word = Word()
-        self._input_service = input_service
+        self.word = Word()
+        self._input_service = InputService()
         self._letter = ""
         self._score = 0
         self._words = ""
@@ -65,15 +66,14 @@ class Director:
                 self._words.remove(word)
                 #Appending words 
                 self._words.append(Word())
-        if not len(self._buffers.get_chars()) == 0: 
-            recent_char = self._buffers.get_chars()[len(self._buffers.get_chars()) - 1]
-            if (recent_char == '*'):
+        if not len(self._letter) == 0: 
+            if (self._letter == '*'):
                 #Reseting the buffer
                 self._buffers.reset()
             else:
                 for word in self._words:
-                    if (self._buffer.compare(word.get_text())):
-                        self._buffer = self._buffers.add_letter(recent_char)
+                    if (self._buffers.compare(word.get_text())):
+                        self._buffer = self._buffers.add_letter(self._letter)
                         self._score = self._score.add_points(1)
                         self._words.remove(word)
                         self._words.append(Word())
