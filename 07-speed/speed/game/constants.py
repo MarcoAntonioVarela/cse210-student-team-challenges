@@ -6,6 +6,7 @@
 #OS is normally use to make,move,rename and remove directories.
 import os
 os.environ['RAYLIB_BIN_PATH'] = '.'
+from game.point import Point
 MAX_X = 800
 MAX_Y = 400
 FRAME_RATE = 30
@@ -16,6 +17,9 @@ DEFAULT_TEXT_OFFSET = 5
 
 MAX_SPEED = 5
 WORD_GENERATION_RATE = 0.02
+
+BUFFER_POSITION = Point(1, MAX_Y - 30)
+SCORE_BOARD = Point(1, MAX_Y - 390)
 
 STARTING_WORDS = 5
 PATH = os.path.dirname(os.path.abspath(__file__))
