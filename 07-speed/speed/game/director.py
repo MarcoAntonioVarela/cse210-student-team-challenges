@@ -88,7 +88,7 @@ class Director:
         self._output_service.draw_actor(f"Score: {self._score}", constants.SCORE_BOARD)
         # for word in self._words:
         #     #added word position to draw_actor
-        #      self._output_service.draw_actor(word,self.word_position)
+        self._output_service.draw_actor(self._words, self.word_position)
         self._output_service.draw_actor(f"Buffer: {self._buffer}", constants.BUFFER_POSITION)
         self._output_service.flush_buffer()
         self._input_service.window_should_close()
