@@ -25,13 +25,11 @@ class Director:
         self._keep_playing = True
         self._input_service = input_service
         self._output_service = output_service
-        self._score_board = Point(0,1)
         self._word = Word()
         self._letter = ""
         self._score = 0
         self._scores = Score()
-        self._words = ""
-        self.buffer_position = Point(1, constants.MAX_Y - 30)
+        self._words = []
         self._buffers = Buffer()
         self._buffer = ""
         #created word_position, ideally should let the words spawn in random positions along the Y axis
@@ -87,10 +85,10 @@ class Director:
 
     def _do_outputs(self):
         self._output_service.clear_screen()
-        self._output_service.draw_actor(f"Score: {self._score}", self._score_board)
+        self._output_service.draw_actor(f"Score: {self._score}", constants.SCORE_BOARD)
         for word in self._words:
             #added word position to draw_actor
              self._output_service.draw_actor(word,self.word_position)
-        self._output_service.draw_actor(f"Buffer: {self._buffer}", self.buffer_position)
+        self._output_service.draw_actor(f"Buffer: {self._buffer}", constants.BUFFER_POSITION)
         self._output_service.flush_buffer()
         self._input_service.window_should_close()
