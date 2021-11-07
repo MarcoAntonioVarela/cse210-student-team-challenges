@@ -4,6 +4,7 @@ from game.score import Score
 from game import constants
 from game.point import Point
 from game.input_service import InputService
+from game.output_service import OutputService
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -22,12 +23,11 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._input_service = input_service
         self._keep_playing = True
-        self._output_service = output_service
+        self._output_service = OutputService()
+        self._input_service = InputService()
         self._score_board = Point(0,1)
         self.word = Word()
-        self._input_service = InputService()
         self._letter = ""
         self._score = 0
         self._words = ""
