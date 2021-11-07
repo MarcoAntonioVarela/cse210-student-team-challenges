@@ -3,7 +3,9 @@ from game.buffer import Buffer
 from game.score import Score
 from game import constants
 from game.point import Point
+import random
 
+from game.constants import MAX_Y
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -33,6 +35,8 @@ class Director:
         self.buffer_position = Point(1, constants.MAX_Y - 30)
         self._buffers = Buffer()
         self._buffer = ""
+        #created word_position, ideally should let the words spawn in random positions along the Y axis
+        self.word_position = Point(1, random.randint(0, MAX_Y))
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -58,13 +62,15 @@ class Director:
         self._input_service.window_should_close()  
         
     def _do_updates(self):
-        for self._word in self._words:
-            self._word.move_next()
-            if(not self._word.check_position()):
-                # Checking if word has moved off of the screen and needs to be replaced
-                self._words.remove(self._word)
-                #Appending words 
-                self._words.append(Word())
+        self._words = self._word.get_all()
+
+        # for self._word in self._words:
+        #     self._word.move_next()
+        #     if(not self._word.check_position()):
+        #         # Checking if word has moved off of the screen and needs to be replaced
+        #         self._words.remove(self._word)
+        #         #Appending words 
+        #         self._words.append(Word())
         if not len(self._letter) == 0: 
             if (self._letter == '*'):
                 #Reseting the buffer
@@ -84,7 +90,8 @@ class Director:
         self._output_service.clear_screen()
         self._output_service.draw_actor(f"Score: {self._score}", self._score_board)
         for word in self._words:
-             self._output_service.draw_actor(word)
+            #added word position to draw_actor
+             self._output_service.draw_actor(word,self.word_position)
         self._output_service.draw_actor(f"Buffer: {self._buffer}", self.buffer_position)
         self._output_service.flush_buffer()
         self._input_service.window_should_close()
