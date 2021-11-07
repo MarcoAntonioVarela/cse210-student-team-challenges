@@ -31,12 +31,13 @@ class Director:
         self._word = Word()
         self._letter = ""
         self._score = 0
+        self._scores = Score()
         self._words = ""
         self.buffer_position = Point(1, constants.MAX_Y - 30)
         self._buffers = Buffer()
         self._buffer = ""
         #created word_position, ideally should let the words spawn in random positions along the Y axis
-        self.word_position = Point(1, random.randint(0, MAX_Y))
+        self.word_position = Point(random.randint(600, 750), random.randint(0, MAX_Y))
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -77,11 +78,11 @@ class Director:
                 self._buffers.reset()
             else:
                 for self._word in self._words:
-                    if (self._buffers.compare(self._word.get_text())):
+                    #if (self._buffers.compare(self._word.get_text())):
                         self._buffer = self._buffers.add_letter(self._letter)
-                        self._score = self._score.add_points(1)
-                        self._word.remove(self._word)
-                        self._word.append(self._word)
+                        self._score = self._scores.add_points(1)
+                        # self._word.remove(self._word)
+                        # self._word.append(self._word)
                         continue
 
         self._input_service.window_should_close()
