@@ -29,7 +29,7 @@ class Director:
         self._letter = ""
         self._score = 0
         self._scores = Score()
-        self._words = []
+        self._words = [""]
         self._buffers = Buffer()
         self._buffer = ""
         #created word_position, ideally should let the words spawn in random positions along the Y axis
@@ -72,7 +72,7 @@ class Director:
                 #Reseting the buffer
                 self._buffers.reset()
             else:
-                for self._word in self._words:
+                # for self._word in self._words:
                     #if (self._buffers.compare(self._word.get_text())):
                         self._buffer = self._buffers.add_letter(self._letter)
                         #possibly fixes spam key issue
@@ -80,16 +80,16 @@ class Director:
                         self._score = self._scores.add_points(1)
                         # self._word.remove(self._word)
                         # self._word.append(self._word)
-                        continue
+                        # continue
 
         self._input_service.window_should_close()
 
     def _do_outputs(self):
         self._output_service.clear_screen()
         self._output_service.draw_actor(f"Score: {self._score}", constants.SCORE_BOARD)
-        for word in self._words:
-            #added word position to draw_actor
-             self._output_service.draw_actor(word,self.word_position)
+        # for word in self._words:
+        #     #added word position to draw_actor
+        self._output_service.draw_actor(self._words, self.word_position)
         self._output_service.draw_actor(f"Buffer: {self._buffer}", constants.BUFFER_POSITION)
         self._output_service.flush_buffer()
         self._input_service.window_should_close()
