@@ -75,8 +75,8 @@ class Director:
             else:
                 # for self._word in self._words:
                     #if (self._buffers.compare(self._word.get_text())):
-                        self._buffer = self._buffers.add_letter(self._letter)
-                        self._score = self._scores.add_points(1)
+                self._buffer = self._buffers.add_letter(self._letter)
+                self._score = self._scores.add_points(1)
                         # self._word.remove(self._word)
                         # self._word.append(self._word)
                         # continue
