@@ -4,10 +4,8 @@ from game.point import Point
 class Actor:
     """A visible, moveable thing that participates in the game. The responsibility of Actor is to keep track of its appearance, position 
     and velocity in 2d space.
-
     Stereotype:
         Information Holder
-
     Attributes:
         _text (string): The textual representation of the actor.
         _position (Point): The actor's position in 2d space.
@@ -29,7 +27,6 @@ class Actor:
         
         Args:
             self (Actor): an instance of Actor.
-
         Returns:
             Point: The actor's position in 2d space.
         """
@@ -40,7 +37,6 @@ class Actor:
         
         Args:
             self (Actor): an instance of Actor.
-
         Returns:
             string: The actor's textual representation.
         """
@@ -51,7 +47,6 @@ class Actor:
         
         Args:
             self (Actor): an instance of Actor.
-
         Returns:
             Point: The actor's speed and direction.
         """
@@ -100,3 +95,6 @@ class Actor:
             position (Point): The given velocity.
         """
         self._velocity = velocity
+
+    def check_position(self):
+        pass

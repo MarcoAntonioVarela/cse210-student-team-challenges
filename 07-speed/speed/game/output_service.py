@@ -2,6 +2,10 @@ import sys
 from game import constants
 import raylibpy
 from game.actor import Actor
+from game.point import Point
+import random
+
+from game.constants import MAX_X, MAX_Y
 
 class OutputService(Actor):
     """Outputs the game state. The responsibility of the class of objects is to draw the game state on the terminal. 
@@ -21,6 +25,7 @@ class OutputService(Actor):
         """
         super().__init__()
         self._actor = Actor()
+        self._position = Point(0, 1)
 
     def open_window(self, title):
         """
@@ -68,8 +73,8 @@ class OutputService(Actor):
         """ 
         text = str(actor)
         # position = self._actor.get_position()
-        x = position.get_x()
-        y = position.get_y()
+        x = self._position.get_x()
+        y = self._position.get_y()
         # width = self._actor.get_width()
         # height = self._actor.get_height()
 

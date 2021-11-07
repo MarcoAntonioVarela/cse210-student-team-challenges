@@ -43,7 +43,6 @@ class Director:
         """
         print("Starting game...")
         self._output_service.open_window("Speed")
-
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -59,7 +58,7 @@ class Director:
         self._input_service.window_should_close()  
         
     def _do_updates(self):
-        self._words = self._word.word_typed()
+        self._words = self._word.get_all()
 
         # for self._word in self._words:
         #     self._word.move_next()
@@ -76,6 +75,8 @@ class Director:
                 for self._word in self._words:
                     #if (self._buffers.compare(self._word.get_text())):
                         self._buffer = self._buffers.add_letter(self._letter)
+                        #possibly fixes spam key issue
+                        self._letter = ""
                         self._score = self._scores.add_points(1)
                         # self._word.remove(self._word)
                         # self._word.append(self._word)
