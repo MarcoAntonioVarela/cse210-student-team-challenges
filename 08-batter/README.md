@@ -40,3 +40,5 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add your names and emails here
+-Name: Marco Varela
+-Email: var17010@byui.edu
