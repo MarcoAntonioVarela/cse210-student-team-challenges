@@ -1,3 +1,8 @@
+#Marco Varela
+#Week 10
+#Batter program
+#November 19, 2021
+
 from os import X_OK
 import random
 from game import constants
@@ -14,15 +19,16 @@ from game.ball import Ball
 from game.move_actors_action import MoveActorsAction
 from game.handle_off_screen_action import Handle_Off_Screen_Action
 from game.paddle import Paddle
-#from game.control_actors_action import C
-# TODO: Add imports similar to the following when you create these classes
-# from game.brick import Brick
-# from game.ball import Ball
-# from game.paddle import Paddle
-# from game.control_actors_action import ControlActorsAction
-# from game.handle_collisions_action import HandleCollisionsAction
-# from game.handle_off_screen_action import HandleOffScreenAction
-# from game.move_actors_action import MoveActorsAction
+
+
+#TODO: Add imports similar to the following when you create these classes
+from game.brick import Brick
+from game.ball import Ball
+from game.paddle import Paddle
+from game.control_actors_action import ControlActorsAction
+from game.handle_collisions_action import HandleCollisionsAction
+from game.handle_off_screen_action import Handle_Off_Screen_Action
+from game.move_actors_action import MoveActorsAction
 
 def main():
 
@@ -68,14 +74,15 @@ def main():
     audio_service = AudioService()
     move_actors_action = MoveActorsAction()
     
-    #control_actors_action = ControlActorsAction(input_service)
+    control_actors_action = ControlActorsAction(input_service)
     draw_actors_action = DrawActorsAction(output_service)
     handle_off_screen_action = Handle_Off_Screen_Action()
+    handle_collisions_action = HandleCollisionsAction()
 
     # TODO: Create additional actions here and add them to the script
 
-    script["input"] = []
-    script["update"] = [move_actors_action,handle_off_screen_action]
+    script["input"] = [control_actors_action]
+    script["update"] = [move_actors_action,handle_off_screen_action,handle_collisions_action]
     
     script["output"] = [draw_actors_action]
 
